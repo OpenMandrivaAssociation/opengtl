@@ -3,7 +3,7 @@ Name: opengtl
 Version: 0.9.9
 Release: %mkrel 1
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
-License: GPLv2+
+License: LGPLv2+
 Group: System/Libraries
 Url: http://www.opengtl.org/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
