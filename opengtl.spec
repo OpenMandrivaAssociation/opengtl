@@ -1,7 +1,7 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
-Version: 0.9.9
-Release: %mkrel 2
+Version: 0.9.10
+Release: %mkrel 1
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
 License: LGPLv2+
 Group: System/Libraries
