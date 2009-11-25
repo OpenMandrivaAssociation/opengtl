@@ -1,6 +1,6 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
-Version: 0.9.10
+Version: 0.9.12
 Release: %mkrel 1
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
 License: LGPLv2+
@@ -10,7 +10,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: png-devel
-BuildRequires: llvm = 2.5
+BuildRequires: llvm = 2.6
+Requires: llvm = 2.6
 Provides: OpenGTL = %version
 
 %description
@@ -21,6 +22,7 @@ in graphics applications
 %files
 %defattr(-,root,root)
 %{_bindir}/*
+%{_libdir}/GTLImageIO
 %{_datadir}/OpenGTL
 
 #-------------------------------------------------------------------
