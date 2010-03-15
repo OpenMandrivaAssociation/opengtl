@@ -21,7 +21,6 @@ in graphics applications
 
 %files
 %defattr(-,root,root)
-%doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
 %{_bindir}/*
 %{_libdir}/GTLImageIO
 %{_datadir}/OpenGTL
