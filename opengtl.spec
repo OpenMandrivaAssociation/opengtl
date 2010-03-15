@@ -1,7 +1,7 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
 Version: 0.9.13
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
 License: LGPLv2+
 Group: System/Libraries
@@ -34,13 +34,14 @@ in graphics applications
 %package -n %libgtlcore
 Summary: Koffice 2 core library
 Group: System/Libraries
+Conflicts: %{_lib}libopengtl0.6 < 0.9.13
 
 %description -n %libgtlcore
 Koffice 2 core library.
 
 %files -n %libgtlcore
 %defattr(-,root,root)
-%_kde_libdir/libGTLCore.so.%{libgtlcore_major}*
+%_libdir/libGTLCore.so.%{libgtlcore_major}*
 
 #--------------------------------------------------------------------
 
@@ -50,13 +51,14 @@ Koffice 2 core library.
 %package -n %libgtlimageio
 Summary: Koffice 2 core library
 Group: System/Libraries
+Conflicts: %{_lib}libopengtl0.6 < 0.9.13
 
 %description -n %libgtlimageio
 Koffice 2 core library.
 
 %files -n %libgtlimageio
 %defattr(-,root,root)
-%_kde_libdir/libGTLImageIO.so.%{libgtlimageio_major}*
+%_libdir/libGTLImageIO.so.%{libgtlimageio_major}*
 
 #--------------------------------------------------------------------
 
@@ -66,13 +68,14 @@ Koffice 2 core library.
 %package -n %libopenctl
 Summary: Koffice 2 core library
 Group: System/Libraries
+Conflicts: %{_lib}libopengtl0.6 < 0.9.13
 
 %description -n %libopenctl
 Koffice 2 core library.
 
 %files -n %libopenctl
 %defattr(-,root,root)
-%_kde_libdir/libOpenCTL.so.%{libopenctl_major}*
+%_libdir/libOpenCTL.so.%{libopenctl_major}*
 
 #--------------------------------------------------------------------
 
@@ -82,13 +85,14 @@ Koffice 2 core library.
 %package -n %libopenshiva
 Summary: Koffice 2 core library
 Group: System/Libraries
+Conflicts: %{_lib}libopengtl0.6 < 0.9.13
 
 %description -n %libopenshiva
 Koffice 2 core library.
 
 %files -n %libopenshiva
 %defattr(-,root,root)
-%_kde_libdir/libOpenShiva.so.%{libopenshiva_major}*
+%_libdir/libOpenShiva.so.%{libopenshiva_major}*
 
 #--------------------------------------------------------------------
 
@@ -98,6 +102,9 @@ Koffice 2 core library.
 Summary: OpenGTL development files
 Group: Development/C++
 Requires: %libgtlcore = %{version}-%{release}
+Requires: %libopenshiva = %{version}-%{release}
+Requires: %libopenctl = %{version}-%{release}
+Requires: %libgtlimageio = %{version}-%{release}
 Provides: OpenGTL-devel = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 Provides: OpenCTL-devel = %{version}-%{release}
