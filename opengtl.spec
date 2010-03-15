@@ -1,6 +1,6 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
-Version: 0.9.12
+Version: 0.9.13
 Release: %mkrel 1
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
 License: LGPLv2+
@@ -21,34 +21,83 @@ in graphics applications
 
 %files
 %defattr(-,root,root)
+%doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
 %{_bindir}/*
 %{_libdir}/GTLImageIO
 %{_datadir}/OpenGTL
 
-#-------------------------------------------------------------------
+#--------------------------------------------------------------------
 
-%define major 0.6
-%define libname %mklibname %name %major
+%define libgtlcore_major 0
+%define libgtlcore %mklibname gtlcore %libgtlcore_major
 
-%package -n %libname
-Summary: OpenGTL library
+%package -n %libgtlcore
+Summary: Koffice 2 core library
 Group: System/Libraries
 
-%description -n %libname
-OpenGTL library.
+%description -n %libgtlcore
+Koffice 2 core library.
 
-%files -n %libname
+%files -n %libgtlcore
 %defattr(-,root,root)
-%{_libdir}/*.so.%{major}
-%{_libdir}/*.so.%{version}
+%_kde_libdir/libGTLCore.so.%{libgtlcore_major}*
 
-#-------------------------------------------------------------------
+#--------------------------------------------------------------------
+
+%define libgtlimageio_major 0
+%define libgtlimageio %mklibname gtlimageio %libgtlimageio_major
+
+%package -n %libgtlimageio
+Summary: Koffice 2 core library
+Group: System/Libraries
+
+%description -n %libgtlimageio
+Koffice 2 core library.
+
+%files -n %libgtlimageio
+%defattr(-,root,root)
+%_kde_libdir/libGTLImageIO.so.%{libgtlimageio_major}*
+
+#--------------------------------------------------------------------
+
+%define libopenctl_major 0
+%define libopenctl %mklibname openctl %libopenctl_major
+
+%package -n %libopenctl
+Summary: Koffice 2 core library
+Group: System/Libraries
+
+%description -n %libopenctl
+Koffice 2 core library.
+
+%files -n %libopenctl
+%defattr(-,root,root)
+%_kde_libdir/libOpenCTL.so.%{libopenctl_major}*
+
+#--------------------------------------------------------------------
+
+%define libopenshiva_major 0
+%define libopenshiva %mklibname openshiva %libopenshiva_major
+
+%package -n %libopenshiva
+Summary: Koffice 2 core library
+Group: System/Libraries
+
+%description -n %libopenshiva
+Koffice 2 core library.
+
+%files -n %libopenshiva
+%defattr(-,root,root)
+%_kde_libdir/libOpenShiva.so.%{libopenshiva_major}*
+
+#--------------------------------------------------------------------
+
 %define develname %mklibname -d %name
 
 %package -n %develname
 Summary: OpenGTL development files
 Group: Development/C++
-Requires: %{libname} = %{version}-%{release}
+Requires: %libgtlcore = %{version}-%{release}
 Provides: OpenGTL-devel = %{version}-%{release}
 Provides: %{name}-devel = %{version}-%{release}
 Provides: OpenCTL-devel = %{version}-%{release}
@@ -70,6 +119,7 @@ based on OpenGTL.
 %setup -q -n OpenGTL-%version
 
 %build
+%define _disable_ld_no_undefined 1
 %cmake
 %make
 
