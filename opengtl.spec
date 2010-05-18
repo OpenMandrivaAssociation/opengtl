@@ -1,8 +1,9 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
 Version: 0.9.14
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
+Patch0: OpenGTL-0.9.14-fix-link.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.opengtl.org/
@@ -31,12 +32,12 @@ in graphics applications
 %define libgtlcore %mklibname gtlcore %libgtlcore_major
 
 %package -n %libgtlcore
-Summary: Koffice 2 core library
+Summary: OpenGTL core library
 Group: System/Libraries
-Conflicts: %{_lib}libopengtl0.6 < 0.9.13
+Conflicts: %{_lib}opengtl0.6 < 0.9.13
 
 %description -n %libgtlcore
-Koffice 2 core library.
+OpenGTL core library.
 
 %files -n %libgtlcore
 %defattr(-,root,root)
@@ -48,12 +49,12 @@ Koffice 2 core library.
 %define libgtlimageio %mklibname gtlimageio %libgtlimageio_major
 
 %package -n %libgtlimageio
-Summary: Koffice 2 core library
+Summary: OpenGTL core library
 Group: System/Libraries
-Conflicts: %{_lib}libopengtl0.6 < 0.9.13
+Conflicts: %{_lib}opengtl0.6 < 0.9.13
 
 %description -n %libgtlimageio
-Koffice 2 core library.
+OpenGTL core library.
 
 %files -n %libgtlimageio
 %defattr(-,root,root)
@@ -65,12 +66,12 @@ Koffice 2 core library.
 %define libopenctl %mklibname openctl %libopenctl_major
 
 %package -n %libopenctl
-Summary: Koffice 2 core library
+Summary: OpenGTL core library
 Group: System/Libraries
-Conflicts: %{_lib}libopengtl0.6 < 0.9.13
+Conflicts: %{_lib}opengtl0.6 < 0.9.13
 
 %description -n %libopenctl
-Koffice 2 core library.
+OpenGTL core library.
 
 %files -n %libopenctl
 %defattr(-,root,root)
@@ -82,12 +83,12 @@ Koffice 2 core library.
 %define libopenshiva %mklibname openshiva %libopenshiva_major
 
 %package -n %libopenshiva
-Summary: Koffice 2 core library
+Summary: OpenGTL core library
 Group: System/Libraries
-Conflicts: %{_lib}libopengtl0.6 < 0.9.13
+Conflicts: %{_lib}opengtl0.6 < 0.9.13
 
 %description -n %libopenshiva
-Koffice 2 core library.
+OpenGTL core library.
 
 %files -n %libopenshiva
 %defattr(-,root,root)
@@ -123,9 +124,9 @@ based on OpenGTL.
 
 %prep
 %setup -q -n %name
+%patch0 -p0
 
 %build
-%define _disable_ld_no_undefined 1
 %cmake
 %make
 
