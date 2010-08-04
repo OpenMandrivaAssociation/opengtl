@@ -11,8 +11,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: png-devel
-BuildRequires: llvm = 2.6
-Requires: llvm = 2.6
+BuildRequires: llvm = 2.7
+Requires: llvm = 2.7
 Provides: OpenGTL = %version
 
 %description
@@ -123,7 +123,7 @@ based on OpenGTL.
 #--------------------------------------------------------------------
 
 %prep
-%setup -q -n %name
+%setup -q -n OpenGTL-%{version}
 %patch0 -p0
 
 %build
