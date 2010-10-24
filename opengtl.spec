@@ -1,7 +1,7 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
-Version: 0.9.14
-Release: %mkrel 3
+Version: 0.9.15
+Release: %mkrel 1
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
 Patch0: OpenGTL-0.9.14-fix-link.patch
 License: LGPLv2+
@@ -11,8 +11,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: png-devel
-BuildRequires: llvm = 2.7
-Requires: llvm = 2.7
+BuildRequires: llvm = 2.8
+Requires: llvm = 2.8
 Provides: OpenGTL = %version
 
 %description
