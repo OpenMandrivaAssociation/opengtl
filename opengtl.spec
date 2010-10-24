@@ -14,6 +14,7 @@ BuildRequires: png-devel
 BuildRequires: llvm = 2.8
 Requires: llvm = 2.8
 Provides: OpenGTL = %version
+Obsoletes: %{_lib}gtlfragment0 < 0.9.16
 
 %description
 Graphics Transformation Languages is a set of library for using and
@@ -42,22 +43,6 @@ OpenGTL core library.
 %files -n %libgtlcore
 %defattr(-,root,root)
 %_libdir/libGTLCore.so.%{libgtlcore_major}*
-
-#--------------------------------------------------------------------
-
-%define libgtlfragment_major 0
-%define libgtlfragment %mklibname gtlfragment %libgtlfragment_major
-
-%package -n %libgtlfragment
-Summary: OpenGTL core library
-Group: System/Libraries
-
-%description -n %libgtlfragment
-OpenGTL core library.
-
-%files -n %libgtlfragment
-%defattr(-,root,root)
-%_libdir/libGTLFragment.so.%{libgtlfragment_major}*
 
 #--------------------------------------------------------------------
 
@@ -118,7 +103,6 @@ OpenGTL core library.
 Summary: OpenGTL development files
 Group: Development/C++
 Requires: %libgtlcore = %{version}-%{release}
-Requires: %libgtlfragment = %{version}-%{release}
 Requires: %libopenshiva = %{version}-%{release}
 Requires: %libopenctl = %{version}-%{release}
 Requires: %libgtlimageio = %{version}-%{release}
