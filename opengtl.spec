@@ -4,6 +4,7 @@ Version: 0.9.15
 Release: %mkrel 1
 Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
 Patch0: OpenGTL-0.9.14-fix-link.patch
+Patch1: OpenGTL-0.9.15-llvm2.8.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.opengtl.org/
@@ -42,6 +43,22 @@ OpenGTL core library.
 %files -n %libgtlcore
 %defattr(-,root,root)
 %_libdir/libGTLCore.so.%{libgtlcore_major}*
+
+#--------------------------------------------------------------------
+
+%define libgtlfragment_major 0
+%define libgtlfragment %mklibname gtlfragment %libgtlfragment_major
+
+%package -n %libgtlfragment
+Summary: OpenGTL core library
+Group: System/Libraries
+
+%description -n %libgtlfragment
+OpenGTL core library.
+
+%files -n %libgtlfragment
+%defattr(-,root,root)
+%_libdir/libGTLFragment.so.%{libgtlfragment_major}*
 
 #--------------------------------------------------------------------
 
@@ -102,6 +119,7 @@ OpenGTL core library.
 Summary: OpenGTL development files
 Group: Development/C++
 Requires: %libgtlcore = %{version}-%{release}
+Requires: %libgtlfragment = %{version}-%{release}
 Requires: %libopenshiva = %{version}-%{release}
 Requires: %libopenctl = %{version}-%{release}
 Requires: %libgtlimageio = %{version}-%{release}
@@ -125,6 +143,7 @@ based on OpenGTL.
 %prep
 %setup -q -n OpenGTL-%{version}
 %patch0 -p0
+%patch1 -p0
 
 %build
 %cmake
