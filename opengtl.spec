@@ -11,8 +11,8 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: png-devel
-BuildRequires: llvm = 2.8
-Requires: llvm = 2.8
+BuildRequires: llvm = 2.9
+Requires: llvm = 2.9
 Provides: OpenGTL = %version
 Obsoletes: %{_lib}gtlfragment0 < 0.9.16
 
