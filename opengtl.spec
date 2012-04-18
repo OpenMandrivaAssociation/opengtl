@@ -11,7 +11,7 @@ Url: http://www.opengtl.org/
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: png-devel
-BuildRequires: llvm >= 3.0
+BuildRequires: llvm-devel >= 3.0
 Requires: llvm >= 3.0
 Provides: OpenGTL = %version
 # For building docs
