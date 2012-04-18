@@ -16,7 +16,7 @@ BuildRequires: png-devel
 BuildRequires: llvm-devel >= 3.0
 Requires: llvm >= 3.0
 Provides: OpenGTL = %version
-%if %{?with docs}
+%if %{with docs}
 BuildRequires: texlive-latex texlive-tools texlive-graphics texlive-pdftex-def texlive-oberdiek texlive-listings
 BuildRequires: imagemagick texlive-bibtex texlive-makeindex texlive-texconfig
 %endif
@@ -142,7 +142,7 @@ based on OpenGTL.
 %{_libdir}/*.so
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
-%if %{?with docs}
+%if %{with docs}
 %doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
 %endif
 
