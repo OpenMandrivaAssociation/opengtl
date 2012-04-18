@@ -1,20 +1,21 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
-Version: 0.9.15.1
-Release: %mkrel 1
-Source0: http://www.opengtl.org/download/OpenGTL-%{version}.tar.bz2
+Version: 0.9.16
+Release: 1
+Source0: http://download.opengtl.org/OpenGTL-%version.tar.bz2
 Patch0: OpenGTL-0.9.14-fix-link.patch
+Patch1: OpenGTL-0.9.16-llvm-linkage.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.opengtl.org/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: cmake
 BuildRequires: zlib-devel
 BuildRequires: png-devel
-BuildRequires: llvm = 2.9
-Requires: llvm = 2.9
+BuildRequires: llvm >= 3.0
+Requires: llvm >= 3.0
 Provides: OpenGTL = %version
-Obsoletes: %{_lib}gtlfragment0 < 0.9.16
+# For building docs
+BuildRequires: texlive-tools texlive-graphics texlive-pdftex-def texlive-oberdiek texlive-listings
 
 %description
 Graphics Transformation Languages is a set of library for using and
@@ -43,6 +44,23 @@ OpenGTL core library.
 %files -n %libgtlcore
 %defattr(-,root,root)
 %_libdir/libGTLCore.so.%{libgtlcore_major}*
+
+#--------------------------------------------------------------------
+
+%define libgtlfragment_major 0
+%define libgtlfragment %mklibname gtlfragment %libgtlfragment_major
+
+%package -n %libgtlfragment
+Summary: OpenGTL fragment library
+Group: System/Libraries
+Conflicts: %{_lib}opengtl0.6 < 0.9.13
+
+%description -n %libgtlfragment
+OpenGTL fragment library.
+
+%files -n %libgtlfragment
+%defattr(-,root,root)
+%_libdir/libGTLFragment.so.%{libgtlfragment_major}*
 
 #--------------------------------------------------------------------
 
@@ -120,15 +138,19 @@ based on OpenGTL.
 %{_libdir}/*.so
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
+%doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
 
 #--------------------------------------------------------------------
 
 %prep
 %setup -q -n OpenGTL-%{version}
-%patch0 -p0
+%patch0 -p0 -b .linkage~
+%patch1 -p1 -b .llvmlink~
 
 %build
-%cmake
+# OVERRIDE_LLVM_ASSERT is ok because our llvm is built without
+# asserts -- the detection code is off
+%cmake -DOVERIDE_LLVM_ASSERT:BOOL=TRUE
 %make
 
 %install
