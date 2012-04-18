@@ -1,3 +1,5 @@
+%bcond_with docs
+
 Summary: Open Graphics Transformation Languages
 Name: opengtl
 Version: 0.9.16
@@ -14,9 +16,10 @@ BuildRequires: png-devel
 BuildRequires: llvm-devel >= 3.0
 Requires: llvm >= 3.0
 Provides: OpenGTL = %version
-# For building docs
+%if %{?with docs}
 BuildRequires: texlive-latex texlive-tools texlive-graphics texlive-pdftex-def texlive-oberdiek texlive-listings
 BuildRequires: imagemagick texlive-bibtex texlive-makeindex texlive-texconfig
+%endif
 
 %description
 Graphics Transformation Languages is a set of library for using and
@@ -139,7 +142,9 @@ based on OpenGTL.
 %{_libdir}/*.so
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
+%if %{?with docs}
 %doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
+%endif
 
 #--------------------------------------------------------------------
 
