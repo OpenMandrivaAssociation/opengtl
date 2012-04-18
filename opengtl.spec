@@ -15,7 +15,7 @@ BuildRequires: llvm-devel >= 3.0
 Requires: llvm >= 3.0
 Provides: OpenGTL = %version
 # For building docs
-BuildRequires: texlive-tools texlive-graphics texlive-pdftex-def texlive-oberdiek texlive-listings
+BuildRequires: texlive-latex texlive-tools texlive-graphics texlive-pdftex-def texlive-oberdiek texlive-listings
 
 %description
 Graphics Transformation Languages is a set of library for using and
