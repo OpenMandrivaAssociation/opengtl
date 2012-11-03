@@ -142,8 +142,9 @@ based on OpenGTL.
 %{_libdir}/*.so
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
+%if %{with docs}
 %doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
-
+%endif
 #--------------------------------------------------------------------
 
 %prep
