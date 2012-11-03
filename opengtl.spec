@@ -2,7 +2,7 @@
 
 Summary: Open Graphics Transformation Languages
 Name: opengtl
-Version: 0.9.16
+Version: 0.9.17
 Release: 1
 Source0: http://download.opengtl.org/OpenGTL-%version.tar.bz2
 Patch0: OpenGTL-0.9.14-fix-link.patch
@@ -142,9 +142,7 @@ based on OpenGTL.
 %{_libdir}/*.so
 %{_includedir}/*
 %{_libdir}/pkgconfig/*.pc
-%if %{with docs}
 %doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
-%endif
 
 #--------------------------------------------------------------------
 
