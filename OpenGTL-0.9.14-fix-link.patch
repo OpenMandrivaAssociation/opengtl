@@ -1,0 +1,11 @@
+--- OpenGTL/GTLCore/CMakeLists.txt.link	2010-08-04 12:02:22.000000000 +0200
++++ OpenGTL/GTLCore/CMakeLists.txt	2010-08-04 12:02:35.000000000 +0200
+@@ -131,7 +131,7 @@
+ set(EXTRA_GTLCORE_LINK_OPTIONS -Wl,-u,__ZN4llvm15ExecutionEngine9createJITEPNS_6ModuleEPSsPNS_16JITMemoryManagerENS_10CodeGenOpt5LevelEbNS_9CodeModel5ModelE )
+ endif()
+ 
+-target_link_libraries(GTLCore ${LLVM_LDFLAGS} ${LLVM_LIBS} ${EXTRA_GTLCORE_LINK_OPTIONS})
++target_link_libraries(GTLCore ${LLVM_LDFLAGS} ${LLVM_LIBS} ${EXTRA_GTLCORE_LINK_OPTIONS} pthread)
+ 
+ # Set the ABI version of the library
+ set_target_properties(GTLCore PROPERTIES VERSION ${OPENGTL_LIB_VERSION} SOVERSION ${OPENGTL_LIB_SOVERSION} )
