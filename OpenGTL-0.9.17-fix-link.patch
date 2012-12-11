@@ -5,7 +5,7 @@
  endif()
  
 -target_link_libraries(GTLCore ${LLVM_LDFLAGS} ${LLVM_LIBS} ${EXTRA_GTLCORE_LINK_OPTIONS})
-+target_link_libraries(GTLCore ${LLVM_LDFLAGS} ${LLVM_LIBS} ${EXTRA_GTLCORE_LINK_OPTIONS} pthread)
++target_link_libraries(GTLCore ${LLVM_LDFLAGS} ${LLVM_LIBS} ${EXTRA_GTLCORE_LINK_OPTIONS} dl pthread)
  
  # Set the ABI version of the library
  set_target_properties(GTLCore PROPERTIES VERSION ${OPENGTL_LIB_VERSION} SOVERSION ${OPENGTL_LIB_SOVERSION} )

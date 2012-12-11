@@ -4,8 +4,8 @@ Summary: Open Graphics Transformation Languages
 Name: opengtl
 Version: 0.9.17
 Release: 1
-Source0: http://download.opengtl.org/OpenGTL-%version.tar.bz2
-Patch0: OpenGTL-0.9.14-fix-link.patch
+Source0: http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
+Patch0: OpenGTL-0.9.17-fix-link.patch
 Patch1: OpenGTL-0.9.16-llvm-linkage.patch
 License: LGPLv2+
 Group: System/Libraries
@@ -15,7 +15,7 @@ BuildRequires: zlib-devel
 BuildRequires: png-devel
 BuildRequires: llvm-devel >= 3.0
 Requires: llvm >= 3.0
-Provides: OpenGTL = %version
+Provides: OpenGTL = %{EVRD}
 %if %{with docs}
 BuildRequires: texlive-latex texlive-tools texlive-graphics texlive-pdftex-def texlive-oberdiek texlive-listings
 BuildRequires: imagemagick texlive-bibtex texlive-makeindex texlive-texconfig
@@ -124,14 +124,14 @@ OpenGTL core library.
 %package -n %develname
 Summary: OpenGTL development files
 Group: Development/C++
-Requires: %libgtlcore = %{version}-%{release}
-Requires: %libopenshiva = %{version}-%{release}
-Requires: %libopenctl = %{version}-%{release}
-Requires: %libgtlimageio = %{version}-%{release}
-Provides: OpenGTL-devel = %{version}-%{release}
-Provides: %{name}-devel = %{version}-%{release}
-Provides: OpenCTL-devel = %{version}-%{release}
-Provides: openctl-devel = %{version}-%{release}
+Requires: %libgtlcore = %{version}
+Requires: %libopenshiva = %{version}
+Requires: %libopenctl = %{version}
+Requires: %libgtlimageio = %{version}
+Provides: OpenGTL-devel = %{EVRD}
+Provides: %{name}-devel = %{EVRD}
+Provides: OpenCTL-devel = %{EVRD}
+Provides: openctl-devel = %{EVRD}
 
 %description -n %develname
 This package contains header files needed if you wish to build applications
@@ -145,6 +145,7 @@ based on OpenGTL.
 %if %{with docs}
 %doc %_docdir/OpenGTL/shiva/ShivaRef.pdf
 %endif
+
 #--------------------------------------------------------------------
 
 %prep
@@ -162,5 +163,68 @@ based on OpenGTL.
 rm -rf %{buildroot}
 %{makeinstall_std} -C build
 
-%clean
-rm -rf %{buildroot}
+
+
+%changelog
+* Wed Apr 18 2012 Bernhard Rosenkraenzer <bero@bero.eu> 0.9.16-1
++ Revision: 791748
+- Introduce bcond for building docs
+- 0.9.16
+- Fix BuildRequires for docs
+- Fix LLVM linkage
+
+* Tue Apr 26 2011 Funda Wang <fwang@mandriva.org> 0.9.15.1-1
++ Revision: 659203
+- requires llvm 2.9
+- New version 0.9.15.1
+
+* Sun Oct 24 2010 Funda Wang <fwang@mandriva.org> 0.9.15-2mdv2011.0
++ Revision: 589150
+- correct file list
+- renew tarball
+
+* Sun Oct 24 2010 Funda Wang <fwang@mandriva.org> 0.9.15-1mdv2011.0
++ Revision: 588717
+- patch to build with llvm 2.8
+- new verson 0.9.15
+
+* Wed Aug 04 2010 Funda Wang <fwang@mandriva.org> 0.9.14-3mdv2011.0
++ Revision: 565785
+- renew tarball with llvm 2.7
+
+  + Ahmad Samir <ahmadsamir@mandriva.org>
+    - rebuild for missing packages, eaten by the BS
+
+* Tue May 18 2010 Funda Wang <fwang@mandriva.org> 0.9.14-2mdv2010.1
++ Revision: 545070
+- add patch fix build with latest ldflags
+- fix conflicts with
+
+* Tue Mar 16 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.14-1mdv2010.1
++ Revision: 521124
+- Update for koffice
+
+* Mon Mar 15 2010 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.13-2mdv2010.1
++ Revision: 519945
+- Fix file list
+- Fix used macros
+  fix conflicts with previous lib
+- New version 0.9.13
+
+* Wed Nov 25 2009 Funda Wang <fwang@mandriva.org> 0.9.12-1mdv2010.1
++ Revision: 469908
+- New versino 0.9.12
+
+* Thu Sep 17 2009 Nicolas Lécureuil <nlecureuil@mandriva.com> 0.9.10-1mdv2010.0
++ Revision: 443967
+- New version 0.9.10
+
+* Thu Jul 30 2009 Funda Wang <fwang@mandriva.org> 0.9.9-2mdv2010.0
++ Revision: 404528
+- add openctl provides
+
+* Wed Jul 29 2009 Funda Wang <fwang@mandriva.org> 0.9.9-1mdv2010.0
++ Revision: 403874
+- fix license
+- import opengtl
+
