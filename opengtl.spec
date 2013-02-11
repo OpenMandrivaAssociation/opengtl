@@ -7,6 +7,7 @@ Release: 1
 Source0: http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
 Patch0: OpenGTL-0.9.17-fix-link.patch
 Patch1: OpenGTL-0.9.16-llvm-linkage.patch
+Patch2: opengtl-0.9.17-fix-ftbfs-with-llvm-3.2.patch
 License: LGPLv2+
 Group: System/Libraries
 Url: http://www.opengtl.org/
@@ -152,6 +153,7 @@ based on OpenGTL.
 %setup -q -n OpenGTL-%{version}
 %patch0 -p0 -b .linkage~
 %patch1 -p1 -b .llvmlink~
+%patch1 -p1 -b .llvm32~
 
 %build
 # OVERRIDE_LLVM_ASSERT is ok because our llvm is built without
