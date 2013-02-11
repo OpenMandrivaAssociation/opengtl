@@ -153,7 +153,7 @@ based on OpenGTL.
 %setup -q -n OpenGTL-%{version}
 %patch0 -p0 -b .linkage~
 %patch1 -p1 -b .llvmlink~
-%patch1 -p1 -b .llvm32~
+%patch2 -p1 -b .llvm32~
 
 %build
 # OVERRIDE_LLVM_ASSERT is ok because our llvm is built without
