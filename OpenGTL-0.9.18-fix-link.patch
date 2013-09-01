@@ -1,7 +1,7 @@
---- OpenGTL/GTLCore/CMakeLists.txt.link	2010-08-04 12:02:22.000000000 +0200
-+++ OpenGTL/GTLCore/CMakeLists.txt	2010-08-04 12:02:35.000000000 +0200
-@@ -131,7 +131,7 @@
- set(EXTRA_GTLCORE_LINK_OPTIONS -Wl,-u,__ZN4llvm15ExecutionEngine9createJITEPNS_6ModuleEPSsPNS_16JITMemoryManagerENS_10CodeGenOpt5LevelEbNS_9CodeModel5ModelE )
+--- OpenGTL/GTLCore/CMakeLists.txt.orig	2013-09-01 15:15:40.473049010 +0100
++++ OpenGTL/GTLCore/CMakeLists.txt	2013-09-01 15:15:54.383048198 +0100
+@@ -110,7 +110,7 @@
+ set(EXTRA_GTLCORE_LINK_OPTIONS -Wl,-u,__ZTVN4llvm3JITE )
  endif()
  
 -target_link_libraries(GTLCore ${LLVM_LDFLAGS} ${LLVM_LIBS} ${EXTRA_GTLCORE_LINK_OPTIONS})

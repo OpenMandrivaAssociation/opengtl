@@ -5,7 +5,7 @@ Name: opengtl
 Version: 0.9.18
 Release: 1
 Source0: http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
-Patch0: OpenGTL-0.9.17-fix-link.patch
+Patch0: OpenGTL-0.9.18-fix-link.patch
 Patch1: OpenGTL-0.9.16-llvm-linkage.patch
 Patch2: opengtl-0.9.18-llvm-3.3.patch
 License: LGPLv2+
@@ -152,7 +152,7 @@ based on OpenGTL.
 %prep
 %setup -q -n OpenGTL-%{version}
 %patch0 -p0 -b .linkage~
-%patch1 -p1 -b .llvmlink~
+#%patch1 -p1 -b .llvmlink~
 %patch2 -p1 -b .llvm33~
 
 %build
