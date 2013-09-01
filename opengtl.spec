@@ -104,7 +104,7 @@ OpenGTL core library.
 
 #--------------------------------------------------------------------
 
-%define libopenshiva_major %api 0
+%define libopenshiva_major 0
 %define libopenshiva %mklibname openshiva %api %libopenshiva_major
 
 %package -n %libopenshiva
