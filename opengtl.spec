@@ -3,7 +3,7 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
 Version: 0.9.17
-Release: 1
+Release: 2
 Source0: http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
 Patch0: OpenGTL-0.9.17-fix-link.patch
 Patch1: OpenGTL-0.9.16-llvm-linkage.patch
