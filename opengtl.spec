@@ -79,7 +79,7 @@ OpenGTL fragment library.
 Summary: OpenGTL core library
 Group: System/Libraries
 Conflicts: %{_lib}opengtl0.6 < 0.9.13
-Obsoletes; %{_lib}gtlimageio0
+Obsoletes: %{_lib}gtlimageio0
 
 %description -n %libgtlimageio
 OpenGTL core library.
