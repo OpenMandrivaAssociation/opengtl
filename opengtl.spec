@@ -1,4 +1,5 @@
 %bcond_with docs
+%define api 0.8
 
 Summary: Open Graphics Transformation Languages
 Name: opengtl
@@ -36,7 +37,7 @@ in graphics applications
 #--------------------------------------------------------------------
 
 %define libgtlcore_major 0
-%define libgtlcore %mklibname gtlcore %libgtlcore_major
+%define libgtlcore %mklibname gtlcore %api %libgtlcore_major
 
 %package -n %libgtlcore
 Summary: OpenGTL core library
@@ -53,7 +54,7 @@ OpenGTL core library.
 #--------------------------------------------------------------------
 
 %define libgtlfragment_major 0
-%define libgtlfragment %mklibname gtlfragment %libgtlfragment_major
+%define libgtlfragment %mklibname gtlfragment %api %libgtlfragment_major
 
 %package -n %libgtlfragment
 Summary: OpenGTL fragment library
@@ -70,7 +71,7 @@ OpenGTL fragment library.
 #--------------------------------------------------------------------
 
 %define libgtlimageio_major 0
-%define libgtlimageio %mklibname gtlimageio %libgtlimageio_major
+%define libgtlimageio %mklibname gtlimageio %api %libgtlimageio_major
 
 %package -n %libgtlimageio
 Summary: OpenGTL core library
@@ -87,7 +88,7 @@ OpenGTL core library.
 #--------------------------------------------------------------------
 
 %define libopenctl_major 0
-%define libopenctl %mklibname openctl %libopenctl_major
+%define libopenctl %mklibname openctl %api %libopenctl_major
 
 %package -n %libopenctl
 Summary: OpenGTL core library
@@ -103,7 +104,7 @@ OpenGTL core library.
 
 #--------------------------------------------------------------------
 
-%define libopenshiva_major 0
+%define libopenshiva_major %api 0
 %define libopenshiva %mklibname openshiva %libopenshiva_major
 
 %package -n %libopenshiva
