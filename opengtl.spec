@@ -4,7 +4,7 @@
 Summary: Open Graphics Transformation Languages
 Name: opengtl
 Version: 0.9.18
-Release: 1
+Release: 2
 Source0: http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
 Patch0: OpenGTL-0.9.18-fix-link.patch
 Patch1: OpenGTL-0.9.17-libpng-1.6.patch
@@ -43,6 +43,7 @@ in graphics applications
 Summary: OpenGTL core library
 Group: System/Libraries
 Conflicts: %{_lib}opengtl0.6 < 0.9.13
+Obsoletes: %{_lib}gtlcore0
 
 %description -n %libgtlcore
 OpenGTL core library.
@@ -60,6 +61,7 @@ OpenGTL core library.
 Summary: OpenGTL fragment library
 Group: System/Libraries
 Conflicts: %{_lib}opengtl0.6 < 0.9.13
+Obsoletes: %{_lib}gtlfragment0
 
 %description -n %libgtlfragment
 OpenGTL fragment library.
@@ -77,6 +79,7 @@ OpenGTL fragment library.
 Summary: OpenGTL core library
 Group: System/Libraries
 Conflicts: %{_lib}opengtl0.6 < 0.9.13
+Obsoletes; %{_lib}gtlimageio0
 
 %description -n %libgtlimageio
 OpenGTL core library.
@@ -94,6 +97,7 @@ OpenGTL core library.
 Summary: OpenGTL core library
 Group: System/Libraries
 Conflicts: %{_lib}opengtl0.6 < 0.9.13
+Obsoletes: %{_lib}openctl0 
 
 %description -n %libopenctl
 OpenGTL core library.
@@ -111,6 +115,7 @@ OpenGTL core library.
 Summary: OpenGTL core library
 Group: System/Libraries
 Conflicts: %{_lib}opengtl0.6 < 0.9.13
+Obsoletes: %{_lib}openshiva0
 
 %description -n %libopenshiva
 OpenGTL core library.
