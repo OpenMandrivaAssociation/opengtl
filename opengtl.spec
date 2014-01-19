@@ -1,18 +1,18 @@
-%bcond_with docs
+%bcond_without docs
 
 %define api 0.8
 
 Summary:	Open Graphics Transformation Languages
 Name:		opengtl
 Version:	0.9.18
-Release:	7
+Release:	8
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.opengtl.org/
 Source0:	http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
 Patch0:		OpenGTL-0.9.18-fix-link.patch
 Patch1:		OpenGTL-0.9.17-libpng-1.6.patch
-Patch2:		opengtl-0.9.18-llvm-3.3.patch
+Patch2:		opengtl-0.9.18-llvm-3.4.patch
 BuildRequires:	cmake
 BuildRequires:	llvm-devel >= 3.0
 BuildRequires:	pkgconfig(libpng)
