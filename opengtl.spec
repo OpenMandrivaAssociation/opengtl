@@ -1,4 +1,4 @@
-%bcond_without docs
+%bcond_with docs
 
 %define api 0.8
 
