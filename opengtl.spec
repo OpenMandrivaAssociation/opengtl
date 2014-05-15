@@ -13,6 +13,7 @@ Source0:	http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
 Patch0:		OpenGTL-0.9.18-fix-link.patch
 Patch1:		OpenGTL-0.9.17-libpng-1.6.patch
 Patch2:		opengtl-0.9.18-llvm-3.4.patch
+Patch3:		opengtl-0.9.18-llvm-3.5.patch
 BuildRequires:	cmake
 BuildRequires:	llvm-devel >= 3.0
 BuildRequires:	pkgconfig(libpng)
@@ -162,10 +163,12 @@ based on OpenGTL.
 %patch0 -p0 -b .linkage~
 %patch1 -p0 -b .png~
 %patch2 -p1 -b .llvm33~
+%patch3 -p1 -b .llvm35~
 
 %build
 # OVERRIDE_LLVM_ASSERT is ok because our llvm is built without
 # asserts -- the detection code is off
+export CXXFLAGS="$RPM_OPT_FLAGS -std=gnu++11"
 %cmake -DOVERIDE_LLVM_ASSERT:BOOL=TRUE
 %make
 
