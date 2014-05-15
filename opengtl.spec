@@ -5,7 +5,7 @@
 Summary:	Open Graphics Transformation Languages
 Name:		opengtl
 Version:	0.9.18
-Release:	8
+Release:	9
 License:	LGPLv2+
 Group:		System/Libraries
 Url:		http://www.opengtl.org/
