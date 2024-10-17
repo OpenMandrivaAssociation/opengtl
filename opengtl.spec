@@ -8,7 +8,7 @@ Version:	0.9.18
 Release:	11
 License:	LGPLv2+
 Group:		System/Libraries
-Url:		http://www.opengtl.org/
+Url:		https://www.opengtl.org/
 Source0:	http://download.opengtl.org/OpenGTL-%{version}.tar.bz2
 Patch0:		OpenGTL-0.9.18-fix-link.patch
 Patch1:		OpenGTL-0.9.17-libpng-1.6.patch
